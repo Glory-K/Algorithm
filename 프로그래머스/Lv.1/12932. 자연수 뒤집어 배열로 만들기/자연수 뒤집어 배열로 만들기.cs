@@ -1,12 +1,14 @@
 public class Solution {
-    public int[] solution(long n) {
-        string str = n.ToString();
-        int len = str.Length;
+    public long[] solution(long n) {
+        int len = n.ToString().Length;
         
-        int[] answer = new int[len];
+        long[] answer = new long[len];
         
         for(int i = 0; i < len; i++)
-            answer[len-i-1] = int.Parse(str[i].ToString());      
+        {
+            answer[i] = n%10;
+            n/=10;
+        }
         
         return answer;
     }
