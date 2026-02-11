@@ -1,12 +1,21 @@
 def solution(n):
-    res = 1
-    for i in range(1, n):
-        for a in range(1, n):
-            s = sum(range(1, a)) + a * i 
-            if s == n:
-                res += 1
-                break
-            elif s > n:
-                break
-            
-    return res
+    start = 1
+    end = 1
+    current_sum = 1
+    count = 0
+
+    while start <= n:
+        if current_sum == n:
+            count += 1
+            current_sum -= start
+            start += 1
+
+        elif current_sum < n:
+            end += 1
+            current_sum += end
+
+        else:
+            current_sum -= start
+            start += 1
+
+    return count
