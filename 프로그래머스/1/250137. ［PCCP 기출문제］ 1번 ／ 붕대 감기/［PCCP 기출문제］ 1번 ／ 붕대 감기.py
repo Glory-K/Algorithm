@@ -3,10 +3,10 @@ def solution(bandage, health, attacks):
     max_health = health
     attack_turn = False
     bandage_cnt = 0
-    i = 0
+    turn = 0
     
     while True:
-        if attacks[0][0] == i:
+        if attacks[0][0] == turn:
             attack = attacks.pop(0)
             attack_turn = True
 
@@ -30,5 +30,5 @@ def solution(bandage, health, attacks):
         
         if len(attacks) == 0:
             return health
-        i+=1
+        turn+=1
     return 0
